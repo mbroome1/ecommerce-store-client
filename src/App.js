@@ -22,9 +22,8 @@ function App() {
 
   return (
     <>
-      {/* <Routes />
-       */}
-      <Router>
+      {/* <Routes /> */}
+      <Router basename="/store">
         {isAuthenticated && <Nav />}
         <div className="App">
           <Switch>
