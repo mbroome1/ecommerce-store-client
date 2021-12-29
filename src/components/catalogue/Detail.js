@@ -15,10 +15,12 @@ function Detail() {
     const {productById, hasLoaded} = useSelector(state => state.products);
     let formattedPrice = 0;
     useEffect(() => {
-        dispatch(getProductById(productId));
+        // if (productId>0) {\
+            dispatch(getProductById(productId));
+        // }
     }, [dispatch]);
 
-    
+    console.log(productId);
     const [size, setSize] = React.useState('');
     const [qty, setQty] = React.useState('');
 
@@ -61,7 +63,7 @@ function Detail() {
             <Grid container spacing={6} sx={{paddingBottom: '60px'}}>
                 <Grid item xs={12} md={5}>
                 <Box sx={{}}>
-                    <Box component="img" src={`/images/${productById.image}`} sx={{width:'100%',height: 'auto', objectFit: 'cover'}}></Box>
+                    <Box component="img" src={`/store/images/${productById.image}`} sx={{width:'100%',height: 'auto', objectFit: 'cover'}}></Box>
                 </Box>
                 </Grid>
                 <Grid item xs={12} md={7}>

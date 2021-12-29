@@ -8,7 +8,7 @@ const CatalogueItem = (props) => {
     
     return (
         <Card sx={{height:'100%', display: 'flex', flexDirection: 'column'}}>
-            <CardMedia component="img" height="320px" image={`/images/${product.image}`} alt="photo" sx={{objectPosition: "50% 65%"}} />
+            <CardMedia component="img" height="320px" image={`/store/images/${product.image}`} alt="photo" sx={{objectPosition: "50% 65%"}} />
             <CardHeader title={product.title} subheader={product.id} sx={{paddingBottom: '10px'}} titleTypographyProps={{fontSize:'1.2rem',color: 'primary'}}></CardHeader>
             <CardContent sx={{paddingTop: 0,paddingBottom: '5px', flex: '1'}}>
                 <Typography variant="p">{product.description}</Typography>

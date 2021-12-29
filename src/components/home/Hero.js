@@ -2,11 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Container, Typography,Box, Button, Paper, ButtonBase } from "@mui/material";
 import {styled } from '@mui/system';
+// import heroImage from './../../images/hero.jpg';
 
 const StyledHero = styled(Paper, {})(({theme}) =>({
     // height: '20vh',
     height: '30vh',
-    background: "url('./images/hero.jpg')",
+    // background: `url(${heroImage})`,
+    background: `url('/store/images/hero.jpg')`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'bottom',
@@ -39,7 +41,7 @@ function Hero() {
                 <Box sx={{width:'100%', textAlign: 'center'}}>
                     <Typography variant="h3">Check Out The Latest Offers!</Typography>
                     <Box sx={{marginTop:'50px'}}>
-                        <StyledHeroButton href="/catalogue" variant="outlined"  size="large">Shop Now!</StyledHeroButton>
+                        <StyledHeroButton component={Link} to="/catalogue" variant="outlined"  size="large">Shop Now!</StyledHeroButton>
                     </Box>
                 </Box>
             </Box>

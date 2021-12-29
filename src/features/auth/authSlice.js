@@ -13,10 +13,11 @@ export const loginRequest = createAsyncThunk("auth/login",async (data, {dispatch
     const config = {
         headers: {
             "Content-Type": "application/json"
-        }
+        },
+        withCredentials: true
     }
     try {
-        await axios.post("/user/login", {
+        await axios.post("http://localhost:3001/user/login", {
             username: data.username,
             email: data.email,
             password: data.password
@@ -32,11 +33,12 @@ export const loginRequest = createAsyncThunk("auth/login",async (data, {dispatch
 export const logoutRequest = createAsyncThunk("auth/logout",async (data, {dispatch, getState, rejectWithValue, fulfillWithValue}) => {
     const config = {
         headers: {
-            "Content-Type": "application/json"
-        }
+            "Content-Type": "application/json",
+        },
+        withCredentials: true
     }
     try {
-        await axios.get("/user/logout",
+        await axios.get("http://localhost:3001/user/logout",
         config
         );
 
@@ -57,7 +59,7 @@ export const checkAuth = createAsyncThunk("auth/checkAuth",async (data, {dispatc
                 crossorigin: true
             }
         // console.log("CHECH AUTH:");
-        await axios.get("/user/checkAuth", config)
+        await axios.get("http://localhost:3001/user/checkAuth", config)
 
     } catch (err) {
         // console.log(err.response.data); 

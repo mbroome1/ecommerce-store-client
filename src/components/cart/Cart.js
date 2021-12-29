@@ -75,10 +75,11 @@ function Cart() {
                                        <Box sx={{height: '140px', width: '115px'}}>
                                             <CardMedia 
                                             component="img" 
-                                            image={`/images/${c.image}`} alt="photo"
+                                            image={`/store/images/${c.image}`} alt="photo"
                                             height="100%"
                                             >
                                             </CardMedia>
+
 
                                         </Box>
 

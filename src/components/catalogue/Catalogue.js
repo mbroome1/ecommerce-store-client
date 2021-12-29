@@ -11,7 +11,7 @@ const Catalogue = () => {
 
     
     useEffect(() => {
-        console.log('rendered catalogue')
+        // console.log('rendered catalogue')
         dispatch(getProducts());
     }, [])
 

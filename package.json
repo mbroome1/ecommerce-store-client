@@ -1,9 +1,9 @@
 {
-  "homepage": ".",
+  "homepage": "/store",
+
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001",
   "dependencies": {
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",

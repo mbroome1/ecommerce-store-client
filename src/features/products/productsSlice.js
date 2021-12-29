@@ -20,7 +20,7 @@ export const getProducts = createAsyncThunk('products/get', async (data, {reject
             crossorigin: true
         }
         
-    const result = await axios.get("/products", config)
+    const result = await axios.get("http://localhost:3001/products", config)
     return result.data;
 } catch (err) {
     throw rejectWithValue(err.response.data.error);
@@ -30,15 +30,17 @@ export const getProducts = createAsyncThunk('products/get', async (data, {reject
 export const getProductById = createAsyncThunk('productById/get', async (data, {rejectWithValue})=> {
     try {
         const config = {
-        headers: {
-            'Content-Type' : 'application/json',
-            'Accept' : 'application/json',
+            headers: {
+                'Content-Type' : 'application/json',
+                'Accept' : 'application/json',
             },
             withCredentials: true,
             crossorigin: true
         }
-
-        const result = await axios.get(`/products/${data}`, {}, config);
+        
+        console.log(`getProductById data val: ${data}`);
+        const result = await axios.get(`http://localhost:3001/products/${data}`, {}, config);
+        console.log(`result ${result}`);
         return result.data;
 } catch (err) {
     throw rejectWithValue(err.response.data.error);

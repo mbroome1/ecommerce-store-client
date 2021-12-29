@@ -71,7 +71,7 @@ export const getCart = createAsyncThunk('cart/get', async (data, {rejectWithValu
             crossorigin: true
         }
     // console.log("CHECH AUTH:");
-    const result = await axios.get("/cart", config);
+    const result = await axios.get("http://localhost:3001/cart", config);
     return result.data;
 } catch (err) {
     // console.log(err.response.data.error)
@@ -90,7 +90,7 @@ export const postCart = createAsyncThunk('cart/post', async (data, {rejectWithVa
             crossorigin: true
         }
     // console.log("CHECH AUTH:");
-    const result = await axios.post("/cart", {
+    const result = await axios.post("http://localhost:3001/cart", {
         productSeq: data.seq,
         productQuantity: data.qty,
         productSize: data.size
@@ -114,7 +114,7 @@ export const deleteCartItemById = createAsyncThunk('cart/deleteCartItemById', as
             crossorigin: true
         }
     // console.log("CHECH AUTH:");
-    const result = await axios.delete(`/cart/${data}`, {}, config);
+    const result = await axios.delete(`http://localhost:3001/cart/${data}`, {}, config);
     // console.log(result.data);
     return {
         data: result.data, 
@@ -136,7 +136,7 @@ export const updateCartItemById = createAsyncThunk('cart/updateCartItemById', as
             crossorigin: true
         }
     // console.log("CHECH AUTH:");
-    const result = await axios.patch('/cart', {
+    const result = await axios.patch('http://localhost:3001/cart', {
         cartItemId: data.id,
         cartItemQuantity: data.quantity
     }, config);
