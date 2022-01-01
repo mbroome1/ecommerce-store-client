@@ -17,7 +17,7 @@ export const loginRequest = createAsyncThunk("auth/login",async (data, {dispatch
         withCredentials: true
     }
     try {
-        await axios.post("http://localhost:3001/user/login", {
+        await axios.post(`${process.env.REACT_APP_SERVER_URL}/user/login`, {
             username: data.username,
             email: data.email,
             password: data.password
@@ -38,7 +38,7 @@ export const logoutRequest = createAsyncThunk("auth/logout",async (data, {dispat
         withCredentials: true
     }
     try {
-        await axios.get("http://localhost:3001/user/logout",
+        await axios.get(`${process.env.REACT_APP_SERVER_URL}/user/logout`,
         config
         );
 
@@ -59,7 +59,7 @@ export const checkAuth = createAsyncThunk("auth/checkAuth",async (data, {dispatc
                 crossorigin: true
             }
         // console.log("CHECH AUTH:");
-        await axios.get("http://localhost:3001/user/checkAuth", config)
+        await axios.get(`${process.env.REACT_APP_SERVER_URL}/user/checkAuth`, config)
 
     } catch (err) {
         // console.log(err.response.data); 

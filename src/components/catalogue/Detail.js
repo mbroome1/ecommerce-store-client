@@ -20,7 +20,7 @@ function Detail() {
         // }
     }, [dispatch]);
 
-    console.log(productId);
+    // console.log(productId);
     const [size, setSize] = React.useState('');
     const [qty, setQty] = React.useState('');
 

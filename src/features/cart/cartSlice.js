@@ -71,7 +71,7 @@ export const getCart = createAsyncThunk('cart/get', async (data, {rejectWithValu
             crossorigin: true
         }
     // console.log("CHECH AUTH:");
-    const result = await axios.get("http://localhost:3001/cart", config);
+    const result = await axios.get(`${process.env.REACT_APP_SERVER_URL}/cart`, config);
     return result.data;
 } catch (err) {
     // console.log(err.response.data.error)
@@ -90,7 +90,7 @@ export const postCart = createAsyncThunk('cart/post', async (data, {rejectWithVa
             crossorigin: true
         }
     // console.log("CHECH AUTH:");
-    const result = await axios.post("http://localhost:3001/cart", {
+    const result = await axios.post(`${process.env.REACT_APP_SERVER_URL}/cart`, {
         productSeq: data.seq,
         productQuantity: data.qty,
         productSize: data.size
@@ -106,16 +106,15 @@ export const postCart = createAsyncThunk('cart/post', async (data, {rejectWithVa
 export const deleteCartItemById = createAsyncThunk('cart/deleteCartItemById', async (data, {rejectWithValue}) => {
     try {
         const config = {
-        headers: {
-            'Content-Type' : 'application/json',
-            'Accept' : 'application/json',
+            headers: {
+                'Content-Type' : 'application/json',
+                'Accept' : 'application/json'
             },
             withCredentials: true,
             crossorigin: true
         }
     // console.log("CHECH AUTH:");
-    const result = await axios.delete(`http://localhost:3001/cart/${data}`, {}, config);
-    // console.log(result.data);
+    const result = await axios.delete(`${process.env.REACT_APP_SERVER_URL}/cart/${data}`, {}, config);
     return {
         data: result.data, 
         deletedCartItemId: data
@@ -136,7 +135,7 @@ export const updateCartItemById = createAsyncThunk('cart/updateCartItemById', as
             crossorigin: true
         }
     // console.log("CHECH AUTH:");
-    const result = await axios.patch('http://localhost:3001/cart', {
+    const result = await axios.patch(`${process.env.REACT_APP_SERVER_URL}/cart`, {
         cartItemId: data.id,
         cartItemQuantity: data.quantity
     }, config);

@@ -20,7 +20,7 @@ export const getProducts = createAsyncThunk('products/get', async (data, {reject
             crossorigin: true
         }
         
-    const result = await axios.get("http://localhost:3001/products", config)
+    const result = await axios.get(`${process.env.REACT_APP_SERVER_URL}/products`, config)
     return result.data;
 } catch (err) {
     throw rejectWithValue(err.response.data.error);
@@ -37,10 +37,7 @@ export const getProductById = createAsyncThunk('productById/get', async (data, {
             withCredentials: true,
             crossorigin: true
         }
-        
-        console.log(`getProductById data val: ${data}`);
-        const result = await axios.get(`http://localhost:3001/products/${data}`, {}, config);
-        console.log(`result ${result}`);
+        const result = await axios.get(`${process.env.REACT_APP_SERVER_URL}/products/${data}`, {}, config);
         return result.data;
 } catch (err) {
     throw rejectWithValue(err.response.data.error);
