@@ -18,7 +18,6 @@ import CartDrawer from './components/cart/CartDrawer';
 
 
 function App() {
-  console.log(process.env)
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
 
   return (
