@@ -114,7 +114,7 @@ export const deleteCartItemById = createAsyncThunk('cart/deleteCartItemById', as
             crossorigin: true
         }
     // console.log("CHECH AUTH:");
-    const result = await axios.delete(`${process.env.REACT_APP_SERVER_URL}/cart/${data}`, {}, config);
+    const result = await axios.delete(`${process.env.REACT_APP_SERVER_URL}/cart/${data}`, config);
     return {
         data: result.data, 
         deletedCartItemId: data
